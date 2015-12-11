@@ -1,23 +1,22 @@
 LOCAL_PATH := $(call my-dir)
 
-#include $(CLEAR_VARS)
-#LOCAL_MODULE_TAGS := optional
-#LOCAL_MODULE := libsrs.so
-#LOCAL_SRC_FILES := $(PLATFORM_SDK_VERSION)/$(LOCAL_MODULE)
-#LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-#LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/soundfx
-#include $(BUILD_PREBUILT)
-
+#--------------EQ by amlogic------------------------#
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libhpeq.so
 
-ifneq (0, $(shell expr $(PLATFORM_VERSION) \>= 4.4))
-LOCAL_SRC_FILES := 19/$(LOCAL_MODULE)
-else
-LOCAL_SRC_FILES := 17/$(LOCAL_MODULE)
-endif
-
+LOCAL_SRC_FILES := EQ/$(LOCAL_MODULE)
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/soundfx
 include $(BUILD_PREBUILT)
+
+#-------------SRS by DTS-----------------------------#
+#include $(CLEAR_VARS)
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE := libsrs.so
+#
+#LOCAL_SRC_FILES := SRS/$(LOCAL_MODULE)
+#LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+#LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/soundfx
+#include $(BUILD_PREBUILT)
+
